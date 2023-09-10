@@ -1,5 +1,1 @@
-Here you can say lots of fun things about your site.
-
-Maybe say a some things about yourself.
-
-Or maybe what you plan to blog about.
+A space to share some discussions over programming-adjacent topics, a repository for odds-and-ends figured out at work, if you will.
