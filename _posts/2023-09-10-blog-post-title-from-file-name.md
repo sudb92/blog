@@ -27,3 +27,9 @@ An acquaintance recently wished to utilize a full program in CERN's ROOT6 with C
     
 * Parting comment: I do like the convenience of the IDE telling me all about function syntaxes as I type them, and the option of doing debug-testing while being a little spoiled. Using my own ```Makefile``` also gives me full control over how I compile the project, which was what originally dragged me away from half-cooked IDEs a long while back. I might stay with code-blocks awhile, maybe. Or check out one of the cousin efforts like ```kate``` or ```geany``` instead of powering through on ```nano``` and a web-browser for ROOT's class info :)
     
+Tested using:
+    - GNU Make 4.3
+    - gcc 11.4
+    - Code::Blocks 20.03
+    - CERN ROOT v6.28.03
+    - All running in Ubuntu 22.04 with a Linux-6.2 Kernel
