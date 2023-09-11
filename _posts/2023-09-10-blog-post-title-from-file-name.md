@@ -5,7 +5,7 @@ An acquaintance recently wished to utilize a full program in CERN's ROOT6 with C
 * We had a custom Makefile that worked on bash, which uses ```root-config``` to dynamically assign compiler flags and libraries
 * <b>Fix 1</b>: Go to ```Project > Properties```
     - Tick "This is a custom Makefile".
-    - If we don't do this Code::Blocks will make assumptions about how to compile files, by turning all .cpp files to .o and trying to link all the .o's together to an executable with the project's name
+    - If we don't do this Code::Blocks will make assumptions about how to compile files and make itself a makefile. At first glance, the process seems to go by turning all .cpp files to .o and trying to link all the .o's together to an executable with the project's name.
 * <b>Fix 2</b>: If you now click 'Build', the default command that gets run would be ```make -f Makefile Debug``` or ```make -f Makefile Release```, because Code::Blocks expects this sort of structure.
     - Sometimes, like in our case, you want some control on this behavior instead of redesigning the makefile.
     - To fix this, go to ```Project > Properties > Project's Build Options > "Make" Commands```, and remove all mentions of ```$target``` in there. We only need ```make -f Makefile``` typically. Or, you could add whatever other 'make' switches/tricks you require here.
