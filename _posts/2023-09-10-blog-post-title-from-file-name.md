@@ -7,7 +7,7 @@ An acquaintance recently wished to utilize a full program in CERN's ROOT6 with C
     - Tick "This is a custom Makefile".
     - If we don't do this Code::Blocks will make assumptions about how to compile files and make itself a makefile. At first glance, the process seems to go by turning all .cpp files to .o and trying to link all the .o's together to an executable with the project's name.
 
-![Screenshot-1]({{site:url}}images/2023-09-10-img1.png width="50%")
+![Screenshot-1]({{site:url}}images/2023-09-10-img1.png)
 
 * <b>Fix 2</b>: If you now click 'Build', the default command that gets run would be ```make -f Makefile Debug``` or ```make -f Makefile Release```, because Code::Blocks expects this sort of structure.
     - Sometimes, like in our case, you want some control on this behavior instead of redesigning the makefile.
