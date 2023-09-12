@@ -13,7 +13,7 @@ An acquaintance recently wished to utilize a full program in CERN's ROOT6 with C
     - Sometimes, like in our case, you want some control on this behavior instead of redesigning the makefile.
     - To fix this, go to ```Project > Properties > Project's Build Options > "Make" Commands```, and remove all mentions of ```$target``` in there. We only need ```make -f Makefile``` typically. Or, you could add whatever other 'make' switches/tricks you require here.
 
-![Screenshot-2]({{site:url}}images/2023-09-10-img2.png){: width="50%"}
+![Screenshot-2]({{site:url}}images/2023-09-10-img2.png)
 
 * <b>Fix 3</b>: Okay, let's try compiling again after hitting "OK" as many times as needed so the settings above are saved.
     - If your Makefile has all the `root-config` mentions expanded out in full, things will run fine. But if you have our situation, and have the makefile literally use `root-config --cflags` etc as part of recipes, Code::Blocks will fail at the first mention of 'root-config' or 'rootcint' with something like ```bash: line 1: root-config: command not found```.
