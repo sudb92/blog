@@ -5,7 +5,7 @@ An acquaintance recently wished to utilize a full program in CERN's ROOT6 with C
 * We had a custom Makefile that worked on bash, which uses ```root-config``` to dynamically assign compiler flags and libraries
 * <b>Fix 1</b>: Go to ```Project > Properties```
     - Tick "This is a custom Makefile".
-    - If we don't do this Code::Blocks will make assumptions about how to compile files and make itself a makefile. At first glance, the process seems to go by turning all .cpp files to .o and trying to link all the .o's together to an executable with the project's name.
+    - If we don't do this Code::Blocks will make assumptions about how to compile files. At first glance, the process seems to go by turning compile source (*.c, *.cpp etc) files to .o and trying to link all the .o's together to an executable with the project's name.
  
 ![Screenshot-1]({{"/images/2023-09-10-img1.png" | absolute_url}})
  
