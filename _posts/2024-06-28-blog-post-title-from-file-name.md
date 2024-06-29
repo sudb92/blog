@@ -132,6 +132,6 @@ g++ uncompressed.cxx -o uncompressed
 ```
 for the original file, and
 ```
-g++ zlibdemp.cxx -o zlibdemo -lz
+g++ zlibdemo.cxx -o zlibdemo -lz
 ```
 for the zlib version. Everything in the first version is contained in standard C/C++ libraries, while the second version needs us to link to zlib's shared libraries. 
