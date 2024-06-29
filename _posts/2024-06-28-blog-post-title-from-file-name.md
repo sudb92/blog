@@ -54,15 +54,11 @@ int main() {
         if(std::find(crystalids.begin(),crystalids.end(),t1d.channel)==crystalids.end()) {
           crystalids.push_back(t1d.channel);
         }
-        type1+=1;
        }
        else {
           assert(head.length < 32768);
           readstatus = read(fd,(void*)buf,head.length);
-          typemisc+=1;
        }
-       recnum += head.length;
-       if(recnum%100'000==0) printf("\rProcessed: %lld MB",recnum/1000'000LL);
        if(quit) break;
     }
     for(auto& x: crystalids) std::cout << x << " "  << std::endl;
