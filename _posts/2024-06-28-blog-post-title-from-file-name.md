@@ -10,6 +10,9 @@ record at a time as follows (I have suppressed the original use-case for illustr
 #include <stdio.h>
 #include <fcntl.h>
 #include <vector>
+#include <algorithm>
+#include <iostream>
+#include <cassert>
 #include <signal.h>
 #include <unistd.h>
 #define MAXSIZE 32768
@@ -76,6 +79,7 @@ Fortunately for us, using the ```zlib``` library is said to be both less messy A
 #include <zlib.h>
 #include <vector>
 #include <iostream>
+#include <algorithm>
 #include <signal.h>
 #include <assert.h>
 #define MAXSIZE 32768
