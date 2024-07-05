@@ -51,7 +51,10 @@ class TApplication {
 * ```tolua++5.1``` can help us convert the above pkg file into a pair of C++ header/source files, that can be used to compile a custom lua5.1 interpreter that 'knows of' the extra classes
 exposed by root1.pkg, in addition to all the capabilities/definitions a regular lua5.1 interpreter brings (such as ```os``` and ```io```, and other capabilities). This is accomplished by running 
 in bash the following line. The output file names are arbitrary chosen as ```hstub.cpp``` and ```hstub.hpp``` keeping with the demo example link.
-``` tolua++5.1 -H hstub.hpp -o hstub.cpp root1.pkg ```
+
+```bash
+tolua++5.1 -H hstub.hpp -o hstub.cpp root1.pkg
+```
 
 * If all goes well, the above step promptly creates the two files. Now, we prepare a ```lua5.1``` interpreter by creating the following ```main.cpp``` file and compiling it. I have smoothed out
 the use of ```extern C``` via the more elegant syntax of including ```lua.hpp``` that comes with all modern versions of lua in package managers. The only additional step here is the inclusion
