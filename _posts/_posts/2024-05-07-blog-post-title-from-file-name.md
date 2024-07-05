@@ -15,6 +15,7 @@ sudo apt install libtolua++5.1-dev
 * ```tolua``` and ```tolua++``` require a package file that has definitions of the requisite class features that need to be exposed. In what's below, I'll stick to tolua++5.1 and C++ classes alone,
  since these are most relevant for ROOT.
 
+### Action:
 * The following file ```root1.pkg```exposes all the features that I plan to use from ROOT's class hierarchy : the ```TH1F``` to be filled, the ```TCanvas``` and ```TApplication``` for live updation
 within a loop. Note that I've also included all the classes that the exposed member functions require. Lua already knows about the standard C/C++ types. It is also important to note the ```$``` sign
 before all the ```#include``` lines.
