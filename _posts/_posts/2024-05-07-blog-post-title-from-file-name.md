@@ -1,8 +1,7 @@
 ## Embedding CERN ROOT classes in Lua5.1 via tolua++
 
 
-* [```tolua++```](https://web.tecgraf.puc-rio.br/~celes/tolua/tolua-3.2.html) is a wonderful tool that allows us to expose a small component of a larger C/C++ library like CERN ROOT to create a compact interpreter with friendlier syntax,
-no explicit typing, and all the other benefits that come with lua embedding - not least, faster prototyping.
+* [```tolua++```](https://web.tecgraf.puc-rio.br/~celes/tolua/tolua-3.2.html) is a wonderful tool that allows us to expose a small component of a larger C/C++ library like CERN ROOT to create a compact interpreter with friendlier syntax, no explicit typing, and all the other benefits that come with lua embedding - not least, faster prototyping.
 
 * Unfortunately, there's a small learning curve when it comes to implementing a working example of how said embedding is done. Upon encountering a helpful 
 stackoverflow answer [here](https://stackoverflow.com/questions/4482518/setting-up-an-environment-for-an-embedded-lua-script), I retried this approach to finally
