@@ -108,4 +108,4 @@ print("...done.\n")
 ```bash
 ./root1 < roottest.lua
 ```
-promptly brings up a live-updating histogram. 
+should promptly bring up a live-updating histogram. Nice!
