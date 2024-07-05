@@ -96,7 +96,7 @@ repeat
     c1:Update()
     i=i+1
 until i==1000
--- c1:SaveAs("test.png")
+c1:SaveAs("test.png")
 repeat 
     do end -- empty block, i.e. a 'nop'
 until c1:WaitPrimitive()==0 
