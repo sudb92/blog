@@ -19,6 +19,7 @@ sudo apt install libtolua++5.1-dev
 * The following file ```root1.pkg```exposes all the features that I plan to use from ROOT's class hierarchy : the ```TH1F``` to be filled, the ```TCanvas``` and ```TApplication``` for live updation
 within a loop. Note that I've also included all the classes that the exposed member functions require. Lua already knows about the standard C/C++ types. It is also important to note the ```$``` sign
 before all the ```#include``` lines.
+
 ```C
 $#include <TH1F.h>
 $#include <TCanvas.h>
@@ -50,6 +51,7 @@ class TApplication {
 * ```tolua++5.1``` can help us convert the above pkg file into a pair of C++ header/source files, that can be used to compile a custom lua5.1 interpreter that 'knows of' the extra classes
 exposed by root1.pkg, in addition to all the capabilities/definitions a regular lua5.1 interpreter brings (such as ```os``` and ```io```, and other capabilities). This is accomplished by running 
 in bash the following line. The output file names are arbitrary chosen as ```hstub.cpp``` and ```hstub.hpp``` keeping with the demo example link.
+
 ```bash
 tolua++5.1 -H hstub.hpp -o hstub.cpp root1.pkg
 ```
@@ -57,6 +59,7 @@ tolua++5.1 -H hstub.hpp -o hstub.cpp root1.pkg
 * If all goes well, the above step promptly creates the two files. Now, we prepare a ```lua5.1``` interpreter by creating the following ```main.cpp``` file and compiling it. I have smoothed out
 the use of ```extern C``` via the more elegant syntax of including ```lua.hpp``` that comes with all modern versions of lua in package managers. The only additional step here is the inclusion
 of ```hstub.hpp``` and the function ```tolua_root1_open()``` defined in ```hstub.cpp```, to load all the additional definitions for use with the lua interpreter. Refer to the ```tolua``` manual for details on these.
+
 ```C
 #include <tolua++.h>
 #include "lua.hpp"
@@ -75,13 +78,17 @@ int main()
     return 0;
 }
 ```
+
 * Now to compile the above, we finally require ```g++```, complete with all the necessary includes of both Lua and CERN ROOT, and all the libraries. The compilation/build recipe here is:
+
 ```bash
 g++ -I/usr/include/lua5.1 `root-config --cflags` main.cpp hstub.cpp -ltolua++5.1 -llua5.1 `root-config --glibs` -o root1
 rm hstub.*
 ```
+
 * The above process creates the executable ```root1``` that is our lua interpreter. I delete the ```hstub``` pair since we no longer need them. We now create a Lua5.1 script that can be sent to the interpreter, that does what we set out originally to do:
 make a ```TCanvas```, fill a ```TH1F``` in a loop within it, live update it, and wait for a ```Ctrl+C``` before exiting. I'm calling the file ```roottest.lua```, and it looks like this:
+
 ```lua
 print("Calling ROOT via a lua script..\n")
 app = TApplication("app",0,0)
@@ -103,7 +110,9 @@ until c1:WaitPrimitive()==0
 --only true when Ctrl+C is sent or 'Quit ROOT' is chosen on TCanvas
 print("...done.\n")
 ```
+
 * Elegant, compact, quick-to-prototype. All things Lua is good at :) Sending the above file to the executable ```root1``` as
+
 ```bash
 ./root1 < roottest.lua
 ```
