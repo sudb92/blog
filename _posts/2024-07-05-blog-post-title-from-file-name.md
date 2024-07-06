@@ -16,8 +16,7 @@ sudo apt install libtolua++5.1-dev
  since these are most relevant for ROOT.
 
 ### Action:
-* The following file ```root1.pkg```exposes all the features that I plan to use from ROOT's class hierarchy : the ```TH1F``` to be filled, the ```TCanvas``` and ```TApplication``` for live updation
-within a loop. Note that I've also included all the classes that the exposed member functions require. Lua already knows about the standard C/C++ types. It is also important to note the ```$``` sign
+* The following file ```root1.pkg```exposes all the features that I plan to use from ROOT's class hierarchy : the ```TH1F``` to be filled, the ```TCanvas``` and ```TApplication``` for live updation within a loop. Note that I've also included all the classes that the exposed member functions require. Lua already knows about the standard C/C++ types. It is also important to note the ```$``` sign
 before all the ```#include``` lines.
 
 ```C
@@ -49,8 +48,7 @@ class TApplication {
 };
 ```
 * ```tolua++5.1``` can help us convert the above pkg file into a pair of C++ header/source files, that can be used to compile a custom lua5.1 interpreter that 'knows of' the extra classes
-exposed by root1.pkg, in addition to all the capabilities/definitions a regular lua5.1 interpreter brings (such as ```os``` and ```io```, and other capabilities). This is accomplished by running 
-in bash the following line. The output file names are arbitrary chosen as ```hstub.cpp``` and ```hstub.hpp``` keeping with the demo example link.
+exposed by root1.pkg, in addition to all the capabilities/definitions a regular lua5.1 interpreter brings (such as ```os``` and ```io```, and other capabilities). This is accomplished by running in bash the following line. The output file names are arbitrary chosen as ```hstub.cpp``` and ```hstub.hpp``` keeping with the demo example link.
 
 ```bash
 tolua++5.1 -H hstub.hpp -o hstub.cpp root1.pkg
@@ -117,3 +115,5 @@ print("...done.\n")
 ./root1 < roottest.lua
 ```
 should promptly bring up a live-updating histogram. Nice!
+
+* In case one now requires some other ROOT class or property to be exposed, all one needs to do is to edit ```root1.pkg``` to include the requisite header files and function declarations, re-run ```tolua++``` to generate updated ```hstub.cpp```+```hstub.hpp``` files, and recompile to update ```root1```'s knowledge. Now, ```roottest.lua``` can use the additional classes/properties.  
