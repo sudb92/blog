@@ -1,7 +1,7 @@
 ## CERN ROOT and Keyboard Event Handling in TCanvas
 
 
-* As part of a longstanding quest, I have always wished to possess the capability to use single-keypress events on a ```TCanvas``` or a ```TBrowser``` in CERN ROOT to trigger events.
+* As part of a longstanding quest, I have always wished to possess the capability to use single-keypress events on a ```TCanvas``` or a ```TBrowser``` in CERN ROOT to trigger actions.
 * Handling a single keystroke, _a la_ ```getch()``` of Borland C++ vintage, is straightforward enough, by using a construct like
   ```while(gPad->WaitPrimitive());```
   peppered within the macro/program, which waits for a keypress in the active macro. If one wants the keypress while a particular ```TCanvas``` was active, that was straightfroward too, as
