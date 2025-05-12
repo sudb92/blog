@@ -7,8 +7,8 @@
   peppered within the macro/program, which waits for a keypress in the active macro. If one wants the keypress while a particular ```TCanvas``` was active, that was straightfroward too, as
   ```while(canvas->WaitPrimitive());```
 * What used to elude my understanding was how to parse the return value of ```gPad->GetEvent()``` to recognize keystrokes in the first place, and secondly, what would allow me to get the result of the keypress.
-* My very crafty coworker over at https://github.com/jmattspartacus told me the wonderful trick a few days back: type-casting to 'char' the results of ```gPad->GetEventX()``` gives its ascii readout!
-* It turns out, one can also cast to ```short``` the results from ```gPad->GetEvent()``` to filter out keypresses by searching for the number 24. (Which is 42 flipped, makes sense.)
+* My very crafty coworker over at https://github.com/jmattspartacus told me the wonderful (but very cryptic) trick a few days back: type-casting to ```char``` the results of ```gPad->GetEventX()``` gives the ascii value of keypress events! This is a little infuriating, since GetEventsX() is used to track mouse X positions in events! Wth, ROOT?
+* It turns out, one can also cast to ```short``` the results from ```gPad->GetEvent()``` to filter out keypresses by searching for the number 24. (Which is 42 flipped, makes sense.) ```gPad->GetEventX()``` and ```gPad->GetEventY()``` both store the same number, which when cast to ```char``` return the ascii value of the key pressed.
 * All in all, the following macro if run with the usual
 ```bash
 root -l -x -q track_keypress_in_canvas.C
